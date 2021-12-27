@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+
+        <!--incorporando fontes do googlefonts-->      
+        <!--font1-->
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">    
+        <!--font2-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Passion+One:wght@700&display=swap" rel="stylesheet">
+
+        <!--linkando o arquivo fornecedor externo CSS-->
+        <link href="./providers/fontawesome/css/all.css" rel="stylesheet" >
+
+        <!--linkando o arquivo proprio interno CSS-->
+        <link href="./css/style.css" rel="stylesheet">
+
+        <!--formatoção de caracteres/acentuação utilizado no projeto-->
+        <meta charset="utf-8">    
+        <!--configuração para dispositivo movel-->  
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" name="viewport">
+        <!--conteúdo resumido do projeto-->
+        <meta name="description" content="conteúdo do meu projeto" name="description">
+        <!--palavras do resumo para uma busca do projeto-->
+        <meta name="keywords" content="palavras,separadas,por,virgula" name="keywords">
+        <!--nome do autor ou empresa do projeto-->
+        <meta name="author" content="DROPS.code - Edmur G Silva Jr">    
+        <!--título do projeto-->
+        <title>WEBJUMP Produtos</title>   
+
+    </head>
+    <body>
+
+        <!--codigo do projeto(parte01)-->
+
+        <!--codigo do projeto(parte02)-->
+        <div class="box-content-produto">
+	
+            <h2><i class="bi bi-inboxes-fill"></i> 1 - Função SeculoAno($ano)</h2>
+        
+            <form method="post" enctype="multipart/form-data"> <!--sem este atributo ENCTYPE, nao funciona o upload da imagem--> 
+                      
+                <div class="form-group">
+                    <label>Ano:</label>
+                    <input type="text" data-mask="0000" name="ano" id="ano" required>
+                </div><!--form-group--> 
+
+                <!--<div class="form-group">
+                    <label>Resposta:</label>
+                    <div class="resposta-ano"></div>
+                </div>form-group--> 
+
+                <div class="form-group">
+                    <input type="submit" name="acao" value="Resposta" id="submit1">
+                </div><!--form-group-->  
+        
+            </form>
+            
+            <h2><i class="bi bi-inboxes-fill"></i> 2 -Função Primo($inicial,$final)</h2>
+        
+            <form method="post" enctype="multipart/form-data"> <!--sem este atributo ENCTYPE, nao funciona o upload da imagem--> 
+                      
+                <div class="form-group">
+                    <label>Numero inicial:</label>
+                    <input type="text" data-mask="00" name="numero1" id="numero1" required>
+                </div><!--form-group--> 
+
+                <div class="form-group">
+                    <label>Numero final:</label>
+                    <input type="text" data-mask="00" name="numero2" id="numero2" required>
+                </div><!--form-group--> 
+
+                <!--<div class="form-group">
+                    <label>Resposta:</label>
+                    <div class="resposta-ano"></div>
+                </div>form-group--> 
+
+                <div class="form-group">
+                    <input type="submit" name="acao" value="Resposta" id="submit2">
+                </div><!--form-group-->  
+        
+            </form>            
+
+            <h2><i class="bi bi-inboxes-fill"></i> 3 -Um array com 20 números inteiros sorteados entre 1 e 10</h2>
+        
+            <form method="post" enctype="multipart/form-data"> <!--sem este atributo ENCTYPE, nao funciona o upload da imagem--> 
+                      
+                <div class="form-group">
+                    <input type="submit" name="acao" value="Sortear" id="submit3">
+                </div><!--form-group-->  
+        
+            </form>               
+        
+        </div><!--box-content-produto-->
+
+        <!--codigo do projeto(parte03)-->
+
+
+        <!--codigo do projeto(parte04)-->
+
+    
+        <!--corpo do projeto(parte05)-->
+        <footer class="footer-dados">            
+            <div class="container">              
+
+                <div class="footer-block">                
+                    <div class="midia-social1">
+                        <p>Todos os direitos reservados &copy;</p>                        
+                    </div>
+                </div>
+
+                 <div class="footer-block">                
+                    <div class="midia-social3">                        
+                        <a class="logo3" href="https://www.dropscode.com.br" target="_blank"></a>                        
+                    </div>
+                </div>
+                         
+                <div class="clear"></div><!--limpa flutuações-->
+
+            </div><!--container-->
+            
+        </footer>  
+
+        <!--linkando o arquivo fornecedor externo JS-->
+        <script src="./providers/jquery-v3.6.0/jquery.js"></script>  
+
+        <!--linkando o arquivo proprio interno JS-->
+        <script src="./js/jquery-mask.js"></script> <!--esta biblioteca depende do JQUERY.JS por isto tem que ser declarada depois-->
+
+
+        <script>
+            // desmarca CHECKBOX do menu vertical
+            window.addEventListener('resize', function() {
+                if (window.matchMedia('(min-width: 830px)').matches) {
+                    document.getElementById('bt_mobile-menu1').checked = false;
+                }
+            }, true);            
+        </script>        
+        
+        <script>
+            //funcao de controle das perguntas
+            $(document).ready(function(){
+                $(function() {
+                    //
+                    $('#submit1').click(function(e) {
+                        ano = $("#ano").val();
+                        if (ano != "")
+                            alert(AnoEmSeculo(ano));
+                    });
+                    //
+                    $('#submit2').click(function(e) {
+                        numero1 = parseInt($("#numero1").val());
+                        numero2 = parseInt($("#numero2").val());  
+                        numeroprimos = "";
+                        if (numero1 != 0 && numero2 != 0)
+                            if(numero1 < numero2){   
+                                for (var num = numero1; num < numero2; num++){
+                                    if (num > numero1)
+                                        if(primo(num) == true)
+                                            numeroprimos = numeroprimos + " " + num.toString();
+                                }
+                                alert(numeroprimos);
+                            }else{
+                                alert('Numero INICIAL tem que ser maior que Numero FINAL!');
+                            }
+                    });    
+                    //
+                    $('#submit3').click(function(e) {
+                        iniciar_sorteio();
+                    });
+                });
+            });
+
+            //controle para validar entrada em ANO e retorno qual o SECULO            
+            function AnoEmSeculo(ano) {
+                //funcao de calculo matemático (operadores ternários)
+                return Math.floor(ano/100) + ((ano%100 ? 1 : ano) % 10 ? 1 : 0);
+            }
+
+
+            //controla a validacao dos numeros primos
+            function primo(num) {
+                // verifica se o numero digitado é "1", que não é primo
+                if(num!=1){
+                for (var i = 2; i < num; i++)
+                    if (num % i == 0) return false;
+                return num !== 1;
+                }
+            }
+
+            //controla a validacao do sorteio dos numeros
+            function iniciar_sorteio(_quaistimes){
+                // declara variaveis de controle para iniciar
+                var numerominpos = 1;
+                var numeromaxpos = 10;
+                var numero = 0;
+                var numseq = 1;
+                var numeroSorteado = [];
+                var numeroNaoSeRepetem = [];
+                var jaexiste = 0;
+                var naoexiste = 0;
+                //
+                while (numseq <= 20)
+                {                    
+                    /* sorteia o numero aleatoriamente entre 1 e 10 */
+                    numero = Math.floor((Math.random() * numeromaxpos) + numerominpos);
+                    //incluir na array
+                    numeroSorteado.push([ numero ]);     
+                    //contador de sequencia do sorteio
+                    numseq = numseq + 1;
+                }
+                for (contja=0; contja<numeroSorteado.length; contja++) {
+                    numero = numeroSorteado[contja];
+                    jaexiste = 0;
+                    for (contnao=0; contnao<numeroSorteado.length; contnao++) {
+                        if (numero == parseInt(numeroSorteado[contnao])) {
+                            jaexiste = jaexiste + 1;
+                        }
+                    }                    
+                    if (jaexiste == 1) {
+                        numeroNaoSeRepetem.push([ numero ]); 
+                    }
+                }
+
+                alert("Array sorteado = [ " + numeroSorteado + "] \nOs numeros que não se repentem são o " + numeroNaoSeRepetem );                
+
+            }                 
+
+
+
+        </script>        
+
+
+    </body>
+</html>
